@@ -23,5 +23,11 @@ sudo mv /tmp/eksctl /usr/local/bin
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.30.0/2024-05-12/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv kubectl /usr/local/bin
+#resizing the disk partitions for more space
+sudo growpart /dev/nvme0n1 4
+sudo lvextend -l +50%FREE /dev/RootVG/rootVol
+sudo lvextend -l +50%FREE /dev/RootVG/varVol
+sudo xfs_growfs /
+sudo xfs_growfs /var
 
 echo -e "$R Logout and login again $N"
