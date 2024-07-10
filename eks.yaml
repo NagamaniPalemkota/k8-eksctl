@@ -8,6 +8,6 @@ metadata:
 managedNodeGroups:
   - name: expense
     instanceType: m5.large
-    desiredCapacity: 2 #2 nodes are created
+    desiredCapacity: 3 #3 nodes are created
     spot: true # will declare it as spot instance
  
